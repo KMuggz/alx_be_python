@@ -21,6 +21,8 @@
     If the user inputs 30 when prompted for their current age, the output should be:
 """
 
+# This is a simple script to calculate future age based on user input
+
 print("How old are you? ")
 current_age = int(input("What is your current age...?"))
 print(f'In 2050, you will be {current_age + 27} years old.')
