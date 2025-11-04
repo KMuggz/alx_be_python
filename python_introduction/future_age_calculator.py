@@ -23,8 +23,7 @@
 
 # This is a simple script to calculate future age based on user input
 
-print("How old are you? ")
-current_age = int(input("What is your current age...?"))
+current_age = int(input("How old are you? "))
 print(f'In 2050, you will be {current_age + 27} years old.')
 
 # Expected Output: Successful execution with printed results based on user input
