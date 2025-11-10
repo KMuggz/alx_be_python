@@ -26,9 +26,9 @@ A message should be ‘that requires immediate attention today!’
 # daily_reminder.py
 
 # Step 1: Prompt user for task info
-task = input("Enter your task for today: ")
-priority = input("Enter the priority (high, medium, low): ").lower()
-time_bound = input("Is this task time-bound? (yes/no): ").lower()
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ").lower()
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
 # Step 2: Use match-case for priority
 match priority:
