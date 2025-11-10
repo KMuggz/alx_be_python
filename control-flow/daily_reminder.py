@@ -41,20 +41,17 @@ match priority:
     case _:
         event = "priority not recognized"
 
-# Step 3: Adjust message based on time sensitivity
-if time_bound == "yes":
-    message = f"Reminder: '{task}' is a {event} task that requires immediate attention today!"
-else:
-    message = f"Note: '{task}' is a {event} task. Consider completing it when you have free time."
-
-# Step 4: Loop to remind user
+# Step 3: Loop to remind user with exact print format
 user_response = ""
 while user_response.lower() != "done":
-    print(message)
+    if time_bound == "yes":
+        print(f"Reminder: '{task}' is a {event} task that requires immediate attention today!")
+    else:
+        print(f"Note: '{task}' is a {event} task. Consider completing it when you have free time.")
+    
     user_response = input("Type 'done' once you have completed or acknowledged the task: ")
 
 print("Great! Task acknowledged. Have a productive day!")
 
 
 # Works as intended
-
