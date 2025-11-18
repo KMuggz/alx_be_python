@@ -1,18 +1,19 @@
 # this script 'arithmetic_operations.py' will accept arguments for basic arithmetic functions
 
-def perform_operation(num1: float, num2: float, operation: str) -> float | str: # changed return type hint for clarity
+def perform_operation(num1: float, num2: float, operation: str) -> float | str:
     """
-    Perform a basic arithmetic operation between two numbers.
+    Performs a specified arithmetic operation on two numbers.
 
-    Args:
-        num1: The first number--float.
-        num2: The second number--float.
-        operation: The arithmetic operation--string ('add', 'subtract', 'multiply', 'divide').
+    Parameters:
+        num1 (float): The first number.
+        num2 (float): The second number.
+        operation (str): The operation to perform.
+                        Must be 'add', 'subtract', 'multiply', or 'divide'.
 
     Returns:
-        The result of the successful numerical operations as a float or a string indicating division by zero.
+        float: The result of the operation.
+        str: An error message if the operation is invalid or division by zero occurs.
     """
-    operation = operation.strip().lower()
 
     if operation == 'add':
         return num1 + num2
@@ -21,10 +22,10 @@ def perform_operation(num1: float, num2: float, operation: str) -> float | str: 
     elif operation == 'multiply':
         return num1 * num2
     elif operation == 'divide':
-        # Handle division by zero explicitly
-        if num2 == 0:
-            return "error: cannot divide by zero"
-        return num1 / num2
-
-
+        if num2 != 0:
+            return num1 / num2
+        else:
+            return "Error: Cannot divide by zero."
+    else:
+        return f"Error: Invalid operation '{operation}'. Must be 'add', 'subtract', 'multiply', or 'divide'."
 
