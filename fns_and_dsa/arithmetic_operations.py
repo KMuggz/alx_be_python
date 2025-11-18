@@ -1,6 +1,6 @@
 # this script 'arithmetic_operations.py' will accept arguments for basic arithmetic functions
 
-def perform_operation(num1: float, num2: float, operation: str) -> float | str: # the return value may be either a float OR a string. (union type)
+def perform_operation(num1: float, num2: float, operation: str) -> float | None: # changed return type hint for clarity
     """
     Perform a basic arithmetic operation between two numbers.
 
@@ -12,6 +12,8 @@ def perform_operation(num1: float, num2: float, operation: str) -> float | str: 
     Returns:
         The result of the successful numerical operations as a float or a string indicating division by zero.
     """
+    operation = operation.strip().lower()
+
     if operation == 'add':
         return num1 + num2
     elif operation == 'subtract':
@@ -21,11 +23,10 @@ def perform_operation(num1: float, num2: float, operation: str) -> float | str: 
     elif operation == 'divide':
         # Handle division by zero explicitly
         if num2 == 0:
-            return "Error: Cannot divide by zero"
+            return None
         return num1 / num2
     else:
         # Handle unrecognized operation type
-        return f"Error: Invalid operation '{operation}'"
-
+        return None
 
 
