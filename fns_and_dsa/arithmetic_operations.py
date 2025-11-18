@@ -1,6 +1,6 @@
 # this script 'arithmetic_operations.py' will accept arguments for basic arithmetic functions
 
-def perform_operation(num1: float, num2: float, operation: str) -> float | None: # changed return type hint for clarity
+def perform_operation(num1: float, num2: float, operation: str) -> float | str: # changed return type hint for clarity
     """
     Perform a basic arithmetic operation between two numbers.
 
@@ -23,10 +23,8 @@ def perform_operation(num1: float, num2: float, operation: str) -> float | None:
     elif operation == 'divide':
         # Handle division by zero explicitly
         if num2 == 0:
-            return None
+            return "error: cannot divide by zero"
         return num1 / num2
-    else:
-        # Handle unrecognized operation type
-        return None
+
 
 
