@@ -16,48 +16,31 @@ def main():
         choice = input("Enter your choice: ").strip()
 
         if choice == '1':
-            # add item(s)
-            item_to_add = input("Enter the item to add (use commas for multiple items): ").strip().lower()
+            item_to_add = input("Enter the item to add: ").strip() # Add a single item
 
-            # support multiple entries to shopping list
-            items = [i.strip() for i in item_to_add.split(",") if i.strip()]
+            if item_to_add:
+                shopping_list.append(item_to_add)
 
-            if items:
-                for item in items:
-                    if item in shopping_list:
-                        print(f"{item} already exists in the list") # duplicate prevention added here
-                    else:
-                        shopping_list.append(item)
-                        print(f"{item} added to the list.")
+                print(f"'{item_to_add}' added to the list.") # Print confirmation message
             else:
                 print("Item name cannot be empty.")
-                
+
         elif choice == '2':
-            # remove item(s)
+
             if not shopping_list:
-                print("The shopping list is already empty.")
+                print("The shopping list is empty.") # Remove a single item
                 continue
-            
-            item_to_remove = input("Enter the items to remove (use commas for multiple items): ").strip().lower()
-            
-            # support multiple deletions in shopping list
-            items = [i.strip() for i in item_to_remove.split(",") if i.strip()]
 
-            removed = []
-            not_found = []
+            item_to_remove = input("Enter the item to remove: ").strip()
 
-            for item in items: # check if the item is in the list before attempting removal
-                if item in shopping_list:
-                    shopping_list.remove(item)
-                    removed.append(item)
-                else:
-                    not_found.append(item)
-            
-            if removed:
-                print(f"{', '.join(removed)} removed from the list.")
-            if not_found:
-                print(f"{', '.join(not_found)} not found in the list.")
-                
+            if item_to_remove in shopping_list:
+                shopping_list.remove(item_to_remove)
+                # Print removal confirmation
+                print(f"'{item_to_remove}' removed from the list.")
+            else:
+                # Print 'not found' message as required
+                print(f"'{item_to_remove}' not found in the list.")
+
         elif choice == '3':
             # view List
             if shopping_list:
@@ -70,7 +53,7 @@ def main():
         elif choice == '4':
             print("Goodbye!")
             break
-            
+
         else:
             print("Invalid choice. Please enter a number from 1 to 4.")
 
